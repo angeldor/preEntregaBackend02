@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "title": "Samsung Galaxy S22 Ultra",
+    "description": "Router de alta velocidad para redes inalámbricas.",
+    "code": "RT-1001",
+    "price": 1199.99,
+    "status": true,
+    "stock": 50,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "router1_1.jpg",
+      "router1_2.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Auriculares Bluetooth con Cancelación de Ruido",
+    "description": "Auriculares inalámbricos con tecnología de cancelación de ruido.",
+    "code": "ABT-2002",
+    "price": 129.99,
+    "status": true,
+    "stock": 30,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "auriculares1_1.jpg",
+      "auriculares1_2.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Cámara de Seguridad IP con Visión Nocturna",
+    "description": "Cámara de vigilancia para interiores con visión nocturna.",
+    "code": "CS-3003",
+    "price": 79.99,
+    "status": true,
+    "stock": 20,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "camara1_1.jpg",
+      "camara1_2.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Teléfono Inteligente 5G",
+    "description": "Smartphone con tecnología de red 5G para velocidades ultrarrápidas.",
+    "code": "TI-4004",
+    "price": 699.99,
+    "status": true,
+    "stock": 40,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "telefono1_1.jpg",
+      "telefono1_2.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Altavoz Inteligente con Asistente Virtual",
+    "description": "Altavoz con asistente virtual integrado para controlar dispositivos inteligentes.",
+    "code": "AI-5005",
+    "price": 59.99,
+    "status": true,
+    "stock": 35,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "altavoz1_1.jpg",
+      "altavoz1_2.jpg"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Monitor Curvo de 27 Pulgadas",
+    "description": "Monitor curvo de alta resolución para experiencias visuales inmersivas.",
+    "code": "MC-6006",
+    "price": 299.99,
+    "status": true,
+    "stock": 25,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "monitor1_1.jpg",
+      "monitor1_2.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Impresora Multifunción Inalámbrica",
+    "description": "Impresora con funciones de escaneo y copiado, conexión inalámbrica.",
+    "code": "IMI-7007",
+    "price": 149.99,
+    "status": true,
+    "stock": 30,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "impresora1_1.jpg",
+      "impresora1_2.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Teclado Mecánico RGB para Gaming",
+    "description": "Teclado mecánico con retroiluminación RGB para jugadores exigentes.",
+    "code": "TMG-8008",
+    "price": 129.99,
+    "status": true,
+    "stock": 20,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "teclado1_1.jpg",
+      "teclado1_2.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Router Mesh WiFi 6",
+    "description": "Sistema de red Mesh con tecnología WiFi 6 para una cobertura completa.",
+    "code": "RMW-9009",
+    "price": 179.99,
+    "status": true,
+    "stock": 25,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "router2_1.jpg",
+      "router2_2.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Monitor Gaming Ultra HD de 32 Pulgadas",
+    "description": "Monitor diseñado para gamers con resolución Ultra HD y alta tasa de refresco.",
+    "code": "MGU-1010",
+    "price": 449.99,
+    "status": true,
+    "stock": 15,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "monitor2_1.jpg",
+      "monitor2_2.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Cámara de Seguridad Exterior 4K",
+    "description": "Cámara de vigilancia para exteriores con grabación en resolución 4K.",
+    "code": "CSE-1111",
+    "price": 129.99,
+    "status": true,
+    "stock": 30,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "camara2_1.jpg",
+      "camara2_2.jpg"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Auriculares Inalámbricos Deportivos",
+    "description": "Auriculares diseñados para actividades deportivas con resistencia al agua.",
+    "code": "AID-1212",
+    "price": 69.99,
+    "status": true,
+    "stock": 25,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "auriculares2_1.jpg",
+      "auriculares2_2.jpg"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Smart TV 55 Pulgadas 4K",
+    "description": "Televisor inteligente con resolución 4K y acceso a plataformas de streaming.",
+    "code": "STV-1313",
+    "price": 599.99,
+    "status": true,
+    "stock": 20,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "tv1_1.jpg",
+      "tv1_2.jpg"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Barra de Sonido Dolby Atmos",
+    "description": "Barra de sonido con tecnología Dolby Atmos para una experiencia de audio envolvente.",
+    "code": "BSD-1414",
+    "price": 199.99,
+    "status": true,
+    "stock": 15,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "barra1_1.jpg",
+      "barra1_2.jpg"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Laptop Ultradelgada SSD 512GB",
+    "description": "Portátil ultradelgado con almacenamiento SSD de alta capacidad.",
+    "code": "LUS-1515",
+    "price": 899.99,
+    "status": true,
+    "stock": 10,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "laptop2_1.jpg",
+      "laptop2_2.jpg"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Proyector Full HD 1080p",
+    "description": "Proyector con resolución Full HD para cine en casa o presentaciones profesionales.",
+    "code": "PFH-1616",
+    "price": 349.99,
+    "status": true,
+    "stock": 25,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "proyector1_1.jpg",
+      "proyector1_2.jpg"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Teclado y Ratón Inalámbricos",
+    "description": "Conjunto de teclado y ratón inalámbricos para mayor comodidad.",
+    "code": "TRI-1717",
+    "price": 49.99,
+    "status": true,
+    "stock": 30,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "teclado2_1.jpg",
+      "raton2_2.jpg"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Batería Externa 20000mAh",
+    "description": "Batería externa de alta capacidad para cargar dispositivos móviles.",
+    "code": "BE-1818",
+    "price": 39.99,
+    "status": true,
+    "stock": 40,
+    "category": "Tecnología y Telecomunicaciones",
+    "thumbnails": [
+      "bateria1_1.jpg",
+      "bateria1_2.jpg"
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Aparato de Conferencia VoIP",
+    "description": "Dispositivo para realizar conferencias de voz sobre IP con calidad de sonido profesional.",
+    "code": "VOIP-005",
+    "price": 299.99,
+    "status": true,
+    "stock": 25,
+    "category": "Telecomunicaciones",
+    "thumbnails": [
+      "voip5_1.jpg",
+      "voip5_2.jpg"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Antena Amplificadora de Señal",
+    "description": "Antena para mejorar la recepción de señales inalámbricas en áreas con poca cobertura.",
+    "code": "ANT-006",
+    "price": 79.99,
+    "status": true,
+    "stock": 35,
+    "category": "Telecomunicaciones",
+    "thumbnails": [
+      "antenna6_1.jpg",
+      "antenna6_2.jpg"
+    ]
+  }
+]
