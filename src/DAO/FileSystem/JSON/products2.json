@@ -1,0 +1,58 @@
+[
+    {
+      "title": "iPhone 13 Pro",
+      "description": "El último teléfono inteligente de Apple con tecnología 5G y cámara de alta resolución.",
+      "price": 999,
+      "image": "iphone13pro.jpg",
+      "code": "IPH13PRO123",
+      "stock": 100,
+      "status": true,
+      "category": "Teléfonos móviles",
+      "thumbnails": ["iphone13pro_thumbnail1.jpg", "iphone13pro_thumbnail2.jpg"]
+    },
+    {
+      "title": "Laptop ASUS ZenBook",
+      "description": "Portátil ligero y potente con pantalla táctil de alta definición y procesador Intel Core i7.",
+      "price": 1299,
+      "image": "asus_zenbook.jpg",
+      "code": "ASUSZEN123",
+      "stock": 50,
+      "status": true,
+      "category": "Computadoras portátiles",
+      "thumbnails": ["asus_zenbook_thumbnail1.jpg", "asus_zenbook_thumbnail2.jpg"]
+    },
+    {
+      "title": "Smart TV Samsung 4K",
+      "description": "Televisor inteligente con resolución Ultra HD, HDR y sistema operativo Tizen.",
+      "price": 799,
+      "image": "samsung_4k_tv.jpg",
+      "code": "SAMS4KTV456",
+      "stock": 75,
+      "status": true,
+      "category": "Televisores",
+      "thumbnails": ["samsung_4k_tv_thumbnail1.jpg", "samsung_4k_tv_thumbnail2.jpg"]
+    },
+    {
+      "title": "Cámara DSLR Nikon D850",
+      "description": "Cámara réflex digital de alta gama con sensor de imagen de 45.7 megapíxeles y grabación de video 4K.",
+      "price": 2999,
+      "image": "nikon_d850.jpg",
+      "code": "NIKD850789",
+      "stock": 30,
+      "status": true,
+      "category": "Cámaras fotográficas",
+      "thumbnails": ["nikon_d850_thumbnail1.jpg", "nikon_d850_thumbnail2.jpg"]
+    },
+    {
+      "title": "Auriculares inalámbricos Sony WH-1000XM4",
+      "description": "Auriculares Bluetooth con cancelación activa de ruido, batería de larga duración y calidad de sonido premium.",
+      "price": 349,
+      "image": "sony_wh1000xm4.jpg",
+      "code": "SONYWHXM478",
+      "stock": 80,
+      "status": true,
+      "category": "Auriculares",
+      "thumbnails": ["sony_wh1000xm4_thumbnail1.jpg", "sony_wh1000xm4_thumbnail2.jpg"]
+    }
+  ]
+  

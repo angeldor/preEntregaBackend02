@@ -7,10 +7,14 @@ const app = express()
 
 mongoose.connect("mongodb://localhost:27017/")
 
+mongoose.connection.on("error", err => {
+    console.error("Error al conectarse a Mongo", + err)
+})
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use('/products', router)
+app.use('/', router)
 
 app.get("/ping", (req, res) => {
     res.send("pong")

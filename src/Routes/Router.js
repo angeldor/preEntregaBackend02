@@ -1,10 +1,17 @@
 import express from 'express'
 import { ProductManager, CartManager } from '../DAO/DB/ProductManager.js'
+import mongoose from 'mongoose'
+import { productModel } from '../DAO/models/product.model.js'
+import { cartModel } from '../DAO/models/cart.model.js'
 
 const router = express.Router()
 
 const productManager = new ProductManager()
 const cartManager = new CartManager()
+
+mongoose.connection.on("error", err => {
+    console.error("Error al conectarse a Mongo", + err)
+})
 
 router.get("/ping", (req, res) => {
     res.send("pong")
@@ -89,12 +96,12 @@ router.get("/products/:id", (req, res) => {
 })
 
 router.get("/carts", (req, res) => {
-    let carts = cartManager.getProducts()
+    let carts = cartManager.getAllCarts()
 
     const limit = req.query.limit
 
     if (limit) {
-        products = products.slice(0, parseInt(limit, 10))
+        products = carts.slice(0, parseInt(limit, 10))
     }
 
     res.send(carts)
