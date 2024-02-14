@@ -13,7 +13,7 @@ const httpServer = app.listen(8080, () => console.log('Server running on port 80
 
 const io = new Server(httpServer)
 
-mongoose.connect("mongodb://localhost:27017/")
+mongoose.connect("mongodb://localhost:27017/ecommerce")
 
 mongoose.connection.on("error", err => {
     console.error("Error al conectarse a Mongo", + err)
