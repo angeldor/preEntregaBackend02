@@ -68,16 +68,15 @@ class ProductManager {
         const product = await productModel.findById(productId);
         if (!product) {
             throw new Error(`Product with id ${productId} not found.`)
-
-            await product.remove()
         }
+        await product.deleteOne()
     }
 }
 
 class CartManager {
     async createCart() {
         const newCart = new cartModel({ items: [], total: 0 })
-        await newCar.save()
+        await newCart.save()
         return newCart._id
     }
 

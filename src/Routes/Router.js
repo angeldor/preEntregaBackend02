@@ -17,7 +17,7 @@ router.get("/ping", (req, res) => {
     res.send("pong")
 })
 
-router.post("/products", (req, res) => {
+router.post("/products", async (req, res) => {
     try {
         const {
             title,
@@ -30,7 +30,7 @@ router.post("/products", (req, res) => {
             thumbnails,
         } = req.body
 
-        const newProduct = productManager.addProduct({
+        const newProduct = await productManager.addProduct({
             title,
             description,
             price,
@@ -48,31 +48,31 @@ router.post("/products", (req, res) => {
 
 })
 
-router.put("/products/:id", (req, res) => {
+router.put("/products/:id", async (req, res) => {
     const productId = req.params.id
     const updatedFields = req.body
 
     try {
-        const updatedProduct = productManager.updateProduct(productId, updatedFields)
+        const updatedProduct = await productManager.updateProduct(productId, updatedFields)
         res.send(updatedProduct)
     } catch (error) {
         res.status(404).send(`Error 404: ${error.message}`)
     }
 })
 
-router.delete("/products/:id", (req, res) => {
+router.delete("/products/:id", async (req, res) => {
     const productId = req.params.id
 
     try {
-        productManager.deleteProduct(productId)
+        await productManager.deleteProduct(productId)
         res.send(`Product with ID ${productId} deleted successfully.`)
     } catch (error) {
         res.status(404).send(error.message)
     }
 })
 
-router.get("/products", (req, res) => {
-    let products = productManager.getProducts()
+router.get("/products", async (req, res) => {
+    let products = await productManager.getProducts()
 
     const limit = req.query.limit
 
@@ -83,62 +83,77 @@ router.get("/products", (req, res) => {
     res.send(products)
 })
 
-router.get("/products/:id", (req, res) => {
+router.get("/products/:id", async (req, res) => {
     const productId = req.params.id
 
-    const product = productManager.getProductById(productId)
-
-    if (product) {
-        res.send(product)
-    } else {
-        res.status(404).send("Error 404: Product not found")
-    }
-})
-
-router.get("/carts", (req, res) => {
-    let carts = cartManager.getAllCarts()
-
-    const limit = req.query.limit
-
-    if (limit) {
-        products = carts.slice(0, parseInt(limit, 10))
-    }
-
-    res.send(carts)
-})
-
-router.post("/carts", (req, res) => {
     try {
-        const newCartId = cartManager.createCart()
+        const product = await productManager.getProductById(productId);
+
+        if (product) {
+            res.send(product);
+        } else {
+            res.status(404).send("Error 404: Product not found");
+        }
+    } catch (error) {
+        res.status(500).send(`Error: ${error.message}`);
+    }
+})
+
+router.get("/carts", async (req, res) => {
+    try {
+        let carts = await cartManager.getAllCarts();
+
+        const limit = req.query.limit;
+
+        if (limit) {
+            carts = carts.slice(0, parseInt(limit, 10));
+        }
+
+        res.send(carts);
+    } catch (error) {
+        res.status(500).send(`Error: ${error.message}`);
+    }
+})
+
+router.post("/carts", async (req, res) => {
+    try {
+        const newCartId = await cartManager.createCart()
         res.status(201).send({ id: newCartId, items: [], total: 0 })
     } catch (error) {
         res.status(500).send(`Error: ${error.message}`)
     }
 })
 
-router.get("/carts/:cid", (req, res) => {
+router.get("/carts/:cid", async (req, res) => {
     const cartId = req.params.cid
 
-    const cart = cartManager.getCart(cartId)
+    try {
+        const cart = await cartManager.getCart(cartId);
 
-    if (cart) {
-        res.send(cart)
-    } else {
-        res.status(404).send(`Error 404: Cart with ID ${cartId} not found.`)
+        if (cart) {
+            res.send(cart);
+        } else {
+            res.status(404).send(`Error 404: Cart with ID ${cartId} not found.`);
+        }
+    } catch (error) {
+        res.status(500).send(`Error: ${error.message}`);
     }
 })
 
-router.post("/carts/:cid/products/:pid", (req, res) => {
+router.post("/carts/:cid/products/:pid", async (req, res) => {
     const cartId = req.params.cid
     const productId = req.params.pid
     const quantity = req.body.quantity || 1
 
     try {
-        cartManager.addToCart(cartId, productId, quantity)
+        await cartManager.addToCart(cartId, productId, quantity)
         res.send("Product added to cart successfully.")
     } catch (error) {
         res.status(400).send(`Error: ${error.message}`)
     }
 })
 
+router.get("/", (req,res)=>{
+    
+})
 export default router
