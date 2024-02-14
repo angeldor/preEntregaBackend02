@@ -5,9 +5,10 @@ import handlebars from 'express-handlebars'
 import mongoose from 'mongoose'
 import router from './Routes/Router.js'
 import { Server } from 'socket.io'
+import { messageModel } from './DAO/models/message.model.js'
 
 const app = express()
-const httpServer = app.listen(8080, ()=> console.log('Server running on port 8080'))
+const httpServer = app.listen(8080, () => console.log('Server running on port 8080'))
 
 
 const io = new Server(httpServer)
@@ -33,7 +34,21 @@ io.on('connection', socket => {
     socket.on('message', data => {
         messages.push(data)
         io.emit('messageLogs', messages)
+
+        const newMessage = new messageModel({
+            user: data.user,
+            message: data.message
+        })
+        newMessage.save()
+            .then(() => console.log('Mensaje guardado en la base de datos'))
+            .catch(error => console.error('Error al guardar el mensaje:', error))
     })
+
+    messageModel.find({})
+        .then(messages => {
+            socket.emit('messageLogs', messages)
+        })
+        .catch(error => console.error('Error al obtener mensajes:', error))
 
     socket.on('login', data => {
         socket.emit('messageLogs', messages)
