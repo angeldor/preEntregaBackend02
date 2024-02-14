@@ -154,6 +154,6 @@ router.post("/carts/:cid/products/:pid", async (req, res) => {
 })
 
 router.get("/", (req,res)=>{
-    
+    res.render('index', [])
 })
 export default router
