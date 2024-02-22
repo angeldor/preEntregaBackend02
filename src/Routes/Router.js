@@ -98,12 +98,12 @@ router.get("/products.html", async (req, res) => {
                 title: product.title,
                 description: product.description,
                 price: product.price,
-                image: product.image
+                image: product.image,
+                category: product.category,
             }
         })
 
-
-        res.render('product', { productData: formattedProducts, totalPages, currentPage, hasNextPage, hasPrevPage, prevPage, nextPage })
+        res.render('product', { productData: formattedProducts, totalPages, currentPage, hasNextPage, hasPrevPage, prevPage, nextPage, prevPrice })
     } catch (error) {
         res.status(500).json({ message: error.message })
     }

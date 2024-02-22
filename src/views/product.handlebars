@@ -2,7 +2,7 @@
     <h1>Lista de productos</h1>
     </div>
 
-    <div class="productList">
+    {{!-- <div class="productList">
         {{#each productData}}
         <div class="productCard">
             <div class="header">
@@ -21,7 +21,30 @@
             </div>
         </div>
         {{/each}}
-    </div>
+    </div> --}}
+
+    <section>
+        {{#each productData}}
+        <div class="product-card spacing">
+            <div class="badge">New Product</div>
+            <div class="product-thumb">
+                <img src="{{this.image}}" alt="Product image">
+            </div>
+            <div class="product-details">
+                <span class="product-category">{{this.category}}</span>
+                <h4><a href="#">{{this.title}}</a></h4>
+                <p>{{this.description}}</p>
+                <div class="product-bottom-details">
+                    <div class="product-price">$ {{this.price}}</div>
+                    <div class="product-links">
+                        <a href="#"><i class="fa-solid fa-info"></i></a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </section>
 
     <div class="navegacion">
         <ul>
