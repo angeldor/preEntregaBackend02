@@ -133,6 +133,33 @@ class CartManager {
         }
     }
 
+    async updateCart(cartId) {
+        try {
+            const cart = await cartModel.findById(cartId)
+
+            if (!cart) {
+                throw new Error(`Cart with id ${cartId} not found.`)
+            }
+
+            let newTotal = 0
+            for (const item of cart.items) {
+                const product = await productModel.findById(item.productId)
+                if (product) {
+                    newTotal += product.price * item.quantity
+                }
+            }
+
+            cart.total = newTotal
+            await cart.save()
+
+            console.log(`Cart with id ${cartId} updated successfully.`)
+            return cart
+        } catch (error) {
+            console.error('Error updating cart:', error.message)
+            throw error
+        }
+    }
+
 }
 
 export { ProductManager, CartManager }

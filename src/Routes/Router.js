@@ -17,6 +17,10 @@ router.get("/ping", (req, res) => {
     res.send("pong")
 })
 
+router.get("/", (req, res) => {
+    res.render('index', [])
+})
+
 router.post("/products", async (req, res) => {
     try {
         const {
@@ -70,7 +74,8 @@ router.delete("/products/:id", async (req, res) => {
         res.status(404).send(error.message)
     }
 })
-
+// Crear una vista en el router de views ‘/products’ 
+// para visualizar todos los productos con su respectiva paginación.
 router.get("/products.html", async (req, res) => {
     try {
         const { limit = 10, page = 1, sort, query } = req.query
@@ -103,7 +108,19 @@ router.get("/products.html", async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 })
-
+//El método GET deberá devolver un objeto con el siguiente formato:
+// {
+// 	status:success/error
+// payload: Resultado de los productos solicitados
+// totalPages: Total de páginas
+// prevPage: Página anterior
+// nextPage: Página siguiente
+// page: Página actual
+// hasPrevPage: Indicador para saber si la página previa existe
+// hasNextPage: Indicador para saber si la página siguiente existe.
+// prevLink: Link directo a la página previa (null si hasPrevPage=false)
+// nextLink: Link directo a la página siguiente (null si hasNextPage=false)
+// }
 router.get("/products.json", async (req, res) => {
     try {
         const { limit = 10, page = 1, sort, query } = req.query
@@ -180,20 +197,22 @@ router.post("/api/carts", async (req, res) => {
         res.status(500).send(`Error: ${error.message}`)
     }
 })
-
+// Además, agregar una vista en ‘/carts/:cid (cartId) 
+// para visualizar un carrito específico, 
+// donde se deberán listar SOLO los productos que pertenezcan a dicho carrito.
 router.get("/api/carts/:cid", async (req, res) => {
     const cartId = req.params.cid
 
     try {
-        const cart = await cartManager.getCart(cartId);
+        const cart = await cartManager.getCart(cartId)
 
         if (cart) {
-            res.send(cart);
+            res.render('cart', { cart })
         } else {
-            res.status(404).send(`Error 404: Cart with ID ${cartId} not found.`);
+            res.status(404).send(`Error 404: Cart with ID ${cartId} not found.`)
         }
     } catch (error) {
-        res.status(500).send(`Error: ${error.message}`);
+        res.status(500).send(`Error: ${error.message}`)
     }
 })
 
@@ -218,12 +237,29 @@ router.delete("/api/carts/:cid/products/:pid", async (req, res) => {
         await cartManager.removeFromCart(cid, pid)
 
         return res.json({ status: "success", message: "Product removed from cart successfully." })
-    } catch (error) { 
+    } catch (error) {
         return res.status(500).json({ status: "error", message: error.message })
     }
 })
 
-router.get("/", (req, res) => {
-    res.render('index', [])
+router.put("/api/carts/:cid", async (req, res) => {
+    try {
+        const { cid } = req.params
+
+        const { products } = req.body
+
+        if (!Array.isArray(products)) {
+            return res.status(400).json({ status: "error", message: "Products should be an array" })
+        }
+
+        const updatedCart = await cartManager.updateCartWithProducts(cid, products)
+
+        res.json({ status: "success", message: "Cart updated successfully", cart: updatedCart })
+    } catch (error) {
+        console.error("Error updating cart:", error.message)
+        res.status(500).json({ status: "error", message: "Internal server error" })
+    }
 })
+
+
 export default router
