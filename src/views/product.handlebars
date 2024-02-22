@@ -18,3 +18,15 @@
         </div>
         {{/each}}
     </div>
+
+    <div class="navegacion">
+        <ul>
+            {{#if hasPrevPage}}
+            <li><a href="?page={{prevPage}}">Anterior</a></li>
+            {{/if}}
+
+            {{#if hasNextPage}}
+            <li><a href="?page={{nextPage}}">Siguiente</a></li>
+            {{/if}}
+        </ul>
+    </div>

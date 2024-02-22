@@ -71,33 +71,24 @@ router.delete("/products/:id", async (req, res) => {
     }
 })
 
-router.get("/products", async (req, res) => {
+router.get("/products.html", async (req, res) => {
     try {
         const { limit = 10, page = 1, sort, query } = req.query
 
-        const limitInt = parseInt(limit, 10)
-        const pageInt = parseInt(page, 10)
-
-        const startIndex = (pageInt - 1) * limitInt
-        const endIndex = pageInt * limitInt
-
-        let products = await productManager.getProducts()
-
-        if (query) {
-            products = products.filter(product => {
-                return product.category.toLowerCase() === query.toLowerCase()
-            })
+        const options = {
+            limit: parseInt(limit, 10),
+            page: parseInt(page, 10),
+            sort: sort ? { price: sort === 'asc' ? 1 : -1 } : null
         }
 
-        if (sort === 'asc') {
-            products.sort((a, b) => a.price - b.price)
-        } else if (sort === 'desc') {
-            products.sort((a, b) => b.price - a.price)
-        }
+        const categoryFilter = query ? { category: { $regex: new RegExp(query, 'i') } } : {}
 
-        const limitedProducts = products.slice(startIndex, endIndex)
+        const { docs: products, totalPages, page: currentPage, hasNextPage, hasPrevPage } = await productModel.paginate(categoryFilter, options)
 
-        let formatedProducts = products.map(product => {
+        let prevPage = currentPage > 1 ? currentPage - 1 : null
+        let nextPage = currentPage < totalPages ? currentPage + 1 : null
+
+        let formattedProducts = products.map(product => {
             return {
                 title: product.title,
                 description: product.description,
@@ -105,9 +96,47 @@ router.get("/products", async (req, res) => {
                 image: product.image
             }
         })
-        res.render('product', { productData: formatedProducts })
+
+
+        res.render('product', { productData: formattedProducts, totalPages, currentPage, hasNextPage, hasPrevPage, prevPage, nextPage })
     } catch (error) {
-        res.status(500).send(`Error: ${error.message}`)
+        res.status(500).json({ message: error.message })
+    }
+})
+
+router.get("/products.json", async (req, res) => {
+    try {
+        const { limit = 10, page = 1, sort, query } = req.query
+
+        const options = {
+            limit: parseInt(limit, 10),
+            page: parseInt(page, 10),
+            sort: sort ? { price: sort === 'asc' ? 1 : -1 } : null
+        }
+
+        const categoryFilter = query ? { category: { $regex: new RegExp(query, 'i') } } : {}
+
+        const { docs: products, totalPages, page: currentPage, hasNextPage, hasPrevPage } = await productModel.paginate(categoryFilter, options)
+
+        let formattedProducts = products.map(product => {
+            return {
+                title: product.title,
+                description: product.description,
+                price: product.price,
+                image: product.image
+            }
+        })
+
+        res.status(200).json({
+            status: 'success',
+            payload: formattedProducts,
+            totalPages,
+            page: currentPage,
+            hasNextPage,
+            hasPrevPage
+        })
+    } catch (error) {
+        res.status(500).json({ message: error.message })
     }
 })
 
@@ -127,7 +156,7 @@ router.get("/products/:id", async (req, res) => {
     }
 })
 
-router.get("/carts", async (req, res) => {
+router.get("/api/carts", async (req, res) => {
     try {
         let carts = await cartManager.getAllCarts();
 
@@ -143,7 +172,7 @@ router.get("/carts", async (req, res) => {
     }
 })
 
-router.post("/carts", async (req, res) => {
+router.post("/api/carts", async (req, res) => {
     try {
         const newCartId = await cartManager.createCart()
         res.status(201).send({ id: newCartId, items: [], total: 0 })
@@ -152,7 +181,7 @@ router.post("/carts", async (req, res) => {
     }
 })
 
-router.get("/carts/:cid", async (req, res) => {
+router.get("/api/carts/:cid", async (req, res) => {
     const cartId = req.params.cid
 
     try {
@@ -168,16 +197,29 @@ router.get("/carts/:cid", async (req, res) => {
     }
 })
 
-router.post("/carts/:cid/products/:pid", async (req, res) => {
-    const cartId = req.params.cid
-    const productId = req.params.pid
-    const quantity = req.body.quantity || 1
+router.post("/api/carts/:cid/products/:pid", async (req, res) => {
 
     try {
-        await cartManager.addToCart(cartId, productId, quantity)
-        res.send("Product added to cart successfully.")
+
+        const { cid, pid } = req.params
+        const { quantity } = req.body
+
+        const cart = await cartManager.addToCart(cid, pid, quantity)
+        res.status(200).json({ status: 'success', payload: cart })
     } catch (error) {
-        res.status(400).send(`Error: ${error.message}`)
+        res.status(500).json({ status: 'error', message: error.message })
+    }
+})
+
+router.delete("/api/carts/:cid/products/:pid", async (req, res) => {
+    try {
+        const { cid, pid } = req.params
+
+        await cartManager.removeFromCart(cid, pid)
+
+        return res.json({ status: "success", message: "Product removed from cart successfully." })
+    } catch (error) { 
+        return res.status(500).json({ status: "error", message: error.message })
     }
 })
 

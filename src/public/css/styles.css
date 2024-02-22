@@ -84,3 +84,7 @@ body{
     background-color: rgb(33 150 243);
     border-radius: 0.5rem;
   }
+
+  .navegacion{
+    background-color: aqua;
+  }
