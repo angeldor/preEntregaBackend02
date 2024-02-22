@@ -72,15 +72,19 @@ router.delete("/products/:id", async (req, res) => {
 })
 
 router.get("/products", async (req, res) => {
-    let products = await productManager.getProducts()
+    try {
+        let products = await productManager.getProducts()
+        console.log(products)
+        const limit = req.query.limit
 
-    const limit = req.query.limit
-
-    if (limit) {
-        products = products.slice(0, parseInt(limit, 10))
+        if (limit) {
+            products = products.slice(0, parseInt(limit, 10))
+        }
+        console.log(products)
+        res.render('product', { productData: products })
+    } catch (error) {
+        res.status(500).send(`Error: ${error.message}`)
     }
-
-    res.send(products)
 })
 
 router.get("/products/:id", async (req, res) => {
@@ -153,7 +157,7 @@ router.post("/carts/:cid/products/:pid", async (req, res) => {
     }
 })
 
-router.get("/", (req,res)=>{
+router.get("/", (req, res) => {
     res.render('index', [])
 })
 export default router
