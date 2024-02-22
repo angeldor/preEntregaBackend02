@@ -109,27 +109,24 @@ class CartManager {
         return cart
     }
 
-    async removeFromCart(cartId, productId) {
-        const cart = await cartModel.findById(cartId);
+    async removeFromCart(cid, pid) {
+        const cart = await cartModel.findById(cid);
         if (!cart) {
-            throw new Error(`Cart with id ${cartId} not found.`)
+            throw new Error(`Cart with id ${cid} not found.`)
         }
 
-        const itemIndex = cart.items.findIndex(item => item.productId.equals(productId))
+        const itemIndex = cart.items.findIndex(item => item.productId.equals(pid))
 
         if (itemIndex !== -1) {
-            const product = await productModel.findById(productId)
-            if (!product) {
-                throw new Error(`Product with id ${productId} not found.`)
-            }
-
-            const { price, quantity } = product
+            const { price, quantity } = cart.items[itemIndex]
             const subtotal = price * quantity
 
             cart.total -= subtotal
             cart.items.splice(itemIndex, 1)
 
             await cart.save()
+        } else {
+            throw new Error(`Product with id ${pid} not found in the cart.`)
         }
     }
 

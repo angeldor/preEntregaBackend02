@@ -23,7 +23,7 @@ body{
 
 .productCard{
     display: flex;
-    flex: 0 0 calc(30% - 1.5rem);
+    flex: 0 0 calc(33% - 1.5rem);
     margin-bottom: 1.5rem;
     flex-direction: column;
     justify-content: space-between;
@@ -83,8 +83,12 @@ body{
     padding: 0.75rem 1.5rem;
     background-color: rgb(33 150 243);
     border-radius: 0.5rem;
+    cursor: pointer;
   }
 
-  .navegacion{
-    background-color: aqua;
+  .navegacion ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin:0 20rem;
   }

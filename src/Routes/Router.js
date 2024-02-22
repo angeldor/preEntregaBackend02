@@ -207,7 +207,23 @@ router.get("/api/carts/:cid", async (req, res) => {
         const cart = await cartManager.getCart(cartId)
 
         if (cart) {
-            res.render('cart', { cart })
+            const productsDetails = []
+
+            for (const item of cart.items) {
+                const product = await productManager.getProductById(item.productId)
+                if (product) {
+                    productsDetails.push({ product, quantity: item.quantity })
+                }
+            }
+            let formattedProducts = productsDetails.map(item => {
+                return {
+                    title: item.product.title,
+                    description: item.product.description,
+                    price: item.product.price
+                }
+            })
+            let cartTotal = cart.total
+            res.render('cart', { cart, formattedProducts, cartTotal })
         } else {
             res.status(404).send(`Error 404: Cart with ID ${cartId} not found.`)
         }

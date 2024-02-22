@@ -1,19 +1,21 @@
-{{!< layouts/main}} 
-<div class="titulo">
+{{!< layouts/main}} <div class="titulo">
     <h1>Lista de productos</h1>
     </div>
 
     <div class="productList">
         {{#each productData}}
         <div class="productCard">
-            <div class="header"></div>
+            <div class="header">
+                <img src="{{this.image}}" alt="Foto producto">
+            </div>
             <div class="info">
                 <h2 class="title">{{this.title}}</h2>
                 <p>{{this.description}}</p>
+                <p></p>
+                <p class="precio">Precio: ${{this.price}}</p>
             </div>
             <div class="footer">
-                <p>Precio: </p>
-                <p class="precio">$ {{this.price}}</p>
+
                 <button class="button">Más info</button>
                 <button class="button">Agregar al carrito</button>
             </div>
@@ -24,11 +26,11 @@
     <div class="navegacion">
         <ul>
             {{#if hasPrevPage}}
-            <li><a href="?page={{prevPage}}">Anterior</a></li>
+            <li><a class="button" href="?page={{prevPage}}">Anterior</a></li>
             {{/if}}
 
             {{#if hasNextPage}}
-            <li><a href="?page={{nextPage}}">Siguiente</a></li>
+            <li><a class="button" href="?page={{nextPage}}">Siguiente</a></li>
             {{/if}}
         </ul>
     </div>
