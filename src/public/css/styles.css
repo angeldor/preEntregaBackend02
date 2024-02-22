@@ -71,7 +71,7 @@ body{
     background-color: rgba(0, 140, 255, 0.082);
 }
 
-.agregarAlCarrito{
+.button{
     user-select: none;
     border: none;
     outline: none;
