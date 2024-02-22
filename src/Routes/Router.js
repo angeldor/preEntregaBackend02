@@ -73,15 +73,39 @@ router.delete("/products/:id", async (req, res) => {
 
 router.get("/products", async (req, res) => {
     try {
-        let products = await productManager.getProducts()
-        console.log(products)
-        const limit = req.query.limit
+        const { limit = 10, page = 1, sort, query } = req.query
 
-        if (limit) {
-            products = products.slice(0, parseInt(limit, 10))
+        const limitInt = parseInt(limit, 10)
+        const pageInt = parseInt(page, 10)
+
+        const startIndex = (pageInt - 1) * limitInt
+        const endIndex = pageInt * limitInt
+
+        let products = await productManager.getProducts()
+
+        if (query) {
+            products = products.filter(product => {
+                return product.category.toLowerCase() === query.toLowerCase()
+            })
         }
-        console.log(products)
-        res.render('product', { productData: products })
+
+        if (sort === 'asc') {
+            products.sort((a, b) => a.price - b.price)
+        } else if (sort === 'desc') {
+            products.sort((a, b) => b.price - a.price)
+        }
+
+        const limitedProducts = products.slice(startIndex, endIndex)
+
+        let formatedProducts = products.map(product => {
+            return {
+                title: product.title,
+                description: product.description,
+                price: product.price,
+                image: product.image
+            }
+        })
+        res.render('product', { productData: formatedProducts })
     } catch (error) {
         res.status(500).send(`Error: ${error.message}`)
     }

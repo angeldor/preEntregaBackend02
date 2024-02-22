@@ -1,6 +1,8 @@
 const socket = io()
 let user
 let chatBox = document.getElementById('chatBox')
+
+//mensajes
 Swal.fire({
     title:'Escribe un nombre de usuario',
     input: 'text',
@@ -42,3 +44,5 @@ socket.on('register', data =>{
         toast: true
     })
 })
+
+//

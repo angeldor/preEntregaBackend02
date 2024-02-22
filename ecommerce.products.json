@@ -1,0 +1,718 @@
+[{
+  "_id": {
+    "$oid": "65cae71b08dc74514fed3993"
+  },
+  "title": "iPhone 13 Pro",
+  "description": "El último teléfono inteligente de Apple con tecnología 5G y cámara de alta resolución.",
+  "price": 999,
+  "image": "iphone13pro.jpg",
+  "code": "IPH13PRO123",
+  "stock": 100,
+  "status": true,
+  "category": "Teléfonos móviles",
+  "thumbnails": [
+    "iphone13pro_thumbnail1.jpg",
+    "iphone13pro_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65cae71b08dc74514fed3994"
+  },
+  "title": "Laptop ASUS ZenBook",
+  "description": "Portátil ligero y potente con pantalla táctil de alta definición y procesador Intel Core i7.",
+  "price": 1299,
+  "image": "asus_zenbook.jpg",
+  "code": "ASUSZEN123",
+  "stock": 50,
+  "status": true,
+  "category": "Computadoras portátiles",
+  "thumbnails": [
+    "asus_zenbook_thumbnail1.jpg",
+    "asus_zenbook_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65cae71b08dc74514fed3995"
+  },
+  "title": "Smart TV Samsung 4K",
+  "description": "Televisor inteligente con resolución Ultra HD, HDR y sistema operativo Tizen.",
+  "price": 799,
+  "image": "samsung_4k_tv.jpg",
+  "code": "SAMS4KTV456",
+  "stock": 75,
+  "status": true,
+  "category": "Televisores",
+  "thumbnails": [
+    "samsung_4k_tv_thumbnail1.jpg",
+    "samsung_4k_tv_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65cae71b08dc74514fed3996"
+  },
+  "title": "Cámara DSLR Nikon D850",
+  "description": "Cámara réflex digital de alta gama con sensor de imagen de 45.7 megapíxeles y grabación de video 4K.",
+  "price": 2999,
+  "image": "nikon_d850.jpg",
+  "code": "NIKD850789",
+  "stock": 30,
+  "status": true,
+  "category": "Cámaras fotográficas",
+  "thumbnails": [
+    "nikon_d850_thumbnail1.jpg",
+    "nikon_d850_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65cae71b08dc74514fed3997"
+  },
+  "title": "Auriculares inalámbricos Sony WH-1000XM4",
+  "description": "Auriculares Bluetooth con cancelación activa de ruido, batería de larga duración y calidad de sonido premium.",
+  "price": 349,
+  "image": "sony_wh1000xm4.jpg",
+  "code": "SONYWHXM478",
+  "stock": 80,
+  "status": true,
+  "category": "Auriculares",
+  "thumbnails": [
+    "sony_wh1000xm4_thumbnail1.jpg",
+    "sony_wh1000xm4_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65caf6c3bf85f9ee353ba0f1"
+  },
+  "title": "Example Product",
+  "description": "This is an example product",
+  "price": 29.99,
+  "image": "example.jpg",
+  "code": "EX-001",
+  "stock": 100,
+  "status": true,
+  "category": "Example Category",
+  "thumbnails": [
+    "thumb1.jpg",
+    "thumb2.jpg"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65caf9144522d7de51c1306e"
+  },
+  "title": "Example Product",
+  "description": "This is an example product",
+  "price": 10.99,
+  "image": "example.jpg",
+  "code": "EX-002",
+  "stock": 100,
+  "status": true,
+  "category": "Example Category",
+  "thumbnails": [
+    "thumb1.jpg",
+    "thumb2.jpg"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d6afcc443fff5acb2f4ab8"
+  },
+  "title": "iPhone 14 Pro",
+  "description": "El último teléfono inteligente de Apple con tecnología 5G y cámara de alta resolución.",
+  "price": 1999,
+  "image": "iphone13pro.jpg",
+  "code": "IPH14PRO123",
+  "stock": 100,
+  "status": true,
+  "category": "Teléfonos móviles",
+  "thumbnails": [
+    "iphone13pro_thumbnail1.jpg",
+    "iphone13pro_thumbnail2.jpg"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d6b13c443fff5acb2f4abe"
+  },
+  "title": "Smartwatch Apple Watch Series 7",
+  "description": "Reloj inteligente con pantalla retina siempre activa, seguimiento de actividad avanzado y resistencia al agua.",
+  "price": 399,
+  "image": "apple_watch_series7.jpg",
+  "code": "APLSERIES7",
+  "stock": 60,
+  "status": true,
+  "category": "Relojes inteligentes",
+  "thumbnails": [
+    "apple_watch_series7_thumbnail1.jpg",
+    "apple_watch_series7_thumbnail2.jpg"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d1397"
+  },
+  "title": "Tablet Samsung Galaxy Tab S7+",
+  "description": "Tableta con pantalla Super AMOLED de 12.4 pulgadas, S Pen incluido y sonido AKG con Dolby Atmos.",
+  "price": 849,
+  "image": "samsung_galaxy_tab_s7plus.jpg",
+  "code": "SAMS7PLUS",
+  "stock": 40,
+  "status": true,
+  "category": "Tabletas",
+  "thumbnails": [
+    "samsung_galaxy_tab_s7plus_thumbnail1.jpg",
+    "samsung_galaxy_tab_s7plus_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d1398"
+  },
+  "title": "Impresora láser HP LaserJet Pro M283fdw",
+  "description": "Impresora multifunción láser con impresión a doble cara, escaneo a color y conexión WiFi.",
+  "price": 349,
+  "image": "hp_laserjet_pro_m283fdw.jpg",
+  "code": "HPLJM283FDW",
+  "stock": 25,
+  "status": true,
+  "category": "Impresoras",
+  "thumbnails": [
+    "hp_laserjet_pro_m283fdw_thumbnail1.jpg",
+    "hp_laserjet_pro_m283fdw_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d1399"
+  },
+  "title": "Videojuego Cyberpunk 2077",
+  "description": "Videojuego de rol de acción en mundo abierto ambientado en el futuro distópico de Night City.",
+  "price": 59,
+  "image": "cyberpunk_2077.jpg",
+  "code": "CYB2077",
+  "stock": 70,
+  "status": true,
+  "category": "Videojuegos",
+  "thumbnails": [
+    "cyberpunk_2077_thumbnail1.jpg",
+    "cyberpunk_2077_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d139a"
+  },
+  "title": "Cafetera Nespresso Vertuo Next",
+  "description": "Cafetera de cápsulas con sistema de centrifugado para preparar café con crema, espresso o café alto.",
+  "price": 149,
+  "image": "nespresso_vertuo_next.jpg",
+  "code": "NESPVERTUO",
+  "stock": 35,
+  "status": true,
+  "category": "Cafeteras",
+  "thumbnails": [
+    "nespresso_vertuo_next_thumbnail1.jpg",
+    "nespresso_vertuo_next_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d139b"
+  },
+  "title": "Teclado mecánico Corsair K70 RGB",
+  "description": "Teclado para juegos con interruptores Cherry MX, retroiluminación RGB y teclas programables.",
+  "price": 169,
+  "image": "corsair_k70_rgb.jpg",
+  "code": "CORSK70RGB",
+  "stock": 45,
+  "status": true,
+  "category": "Periféricos de computadora",
+  "thumbnails": [
+    "corsair_k70_rgb_thumbnail1.jpg",
+    "corsair_k70_rgb_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d139c"
+  },
+  "title": "Mochila para portátil SwissGear 1900",
+  "description": "Mochila resistente con compartimento acolchado para portátil de hasta 17 pulgadas y múltiples bolsillos.",
+  "price": 79,
+  "image": "swissgear_1900_backpack.jpg",
+  "code": "SWISS1900",
+  "stock": 55,
+  "status": true,
+  "category": "Accesorios para computadora",
+  "thumbnails": [
+    "swissgear_1900_backpack_thumbnail1.jpg",
+    "swissgear_1900_backpack_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d139d"
+  },
+  "title": "Altavoces Bluetooth JBL Flip 5",
+  "description": "Altavoces portátiles resistentes al agua con hasta 12 horas de reproducción y calidad de sonido JBL.",
+  "price": 119,
+  "image": "jbl_flip_5.jpg",
+  "code": "JBLFLIP5",
+  "stock": 65,
+  "status": true,
+  "category": "Altavoces",
+  "thumbnails": [
+    "jbl_flip_5_thumbnail1.jpg",
+    "jbl_flip_5_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d139e"
+  },
+  "title": "Monitor LG UltraGear 27GN950-B",
+  "description": "Monitor de juegos de 27 pulgadas con resolución 4K, 144Hz de frecuencia de actualización y tecnología G-SYNC.",
+  "price": 799,
+  "image": "lg_ultragear_27gn950b.jpg",
+  "code": "LG27GN950",
+  "stock": 20,
+  "status": true,
+  "category": "Monitores",
+  "thumbnails": [
+    "lg_ultragear_27gn950b_thumbnail1.jpg",
+    "lg_ultragear_27gn950b_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d139f"
+  },
+  "title": "Micrófono USB Blue Yeti",
+  "description": "Micrófono de condensador USB con cuatro patrones de captura, control de ganancia y salida de auriculares.",
+  "price": 129,
+  "image": "blue_yeti_microphone.jpg",
+  "code": "BLUEYETI",
+  "stock": 50,
+  "status": true,
+  "category": "Micrófonos",
+  "thumbnails": [
+    "blue_yeti_microphone_thumbnail1.jpg",
+    "blue_yeti_microphone_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d13a0"
+  },
+  "title": "Lámpara inteligente Philips Hue White and Color Ambiance",
+  "description": "Bombilla LED inteligente con más de 16 millones de colores, control remoto y compatibilidad con asistentes de voz.",
+  "price": 49,
+  "image": "philips_hue_bulb.jpg",
+  "code": "PHILHUE",
+  "stock": 90,
+  "status": true,
+  "category": "Iluminación inteligente",
+  "thumbnails": [
+    "philips_hue_bulb_thumbnail1.jpg",
+    "philips_hue_bulb_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d13a1"
+  },
+  "title": "Robot aspirador Roomba i7+",
+  "description": "Aspiradora robot con sistema de limpieza autovaciante y navegación inteligente para limpiar toda la casa.",
+  "price": 799,
+  "image": "roomba_i7+.jpg",
+  "code": "ROOMBAI7",
+  "stock": 15,
+  "status": true,
+  "category": "Aspiradoras",
+  "thumbnails": [
+    "roomba_i7+_thumbnail1.jpg",
+    "roomba_i7+_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d13a2"
+  },
+  "title": "Batería externa Anker PowerCore 26800",
+  "description": "Batería portátil de alta capacidad con carga rápida para dispositivos móviles, tabletas y más.",
+  "price": 59,
+  "image": "anker_powercore_26800.jpg",
+  "code": "ANKER26800",
+  "stock": 40,
+  "status": true,
+  "category": "Accesorios para dispositivos móviles",
+  "thumbnails": [
+    "anker_powercore_26800_thumbnail1.jpg",
+    "anker_powercore_26800_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d13a3"
+  },
+  "title": "Cámara de seguridad Ring Spotlight Cam Battery",
+  "description": "Cámara de seguridad para exteriores con foco LED integrado, detección de movimiento y audio bidireccional.",
+  "price": 199,
+  "image": "ring_spotlight_cam.jpg",
+  "code": "RINGSPOTCAM",
+  "stock": 30,
+  "status": true,
+  "category": "Cámaras de seguridad",
+  "thumbnails": [
+    "ring_spotlight_cam_thumbnail1.jpg",
+    "ring_spotlight_cam_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b1bfe681c9cd9e0d13a4"
+  },
+  "title": "Impresora 3D Creality Ender 3",
+  "description": "Impresora 3D de nivel de entrada con estructura de marco de aluminio y volumen de impresión de 220 x 220 x 250 mm.",
+  "price": 229,
+  "image": "creality_ender_3.jpg",
+  "code": "CREENDER3",
+  "stock": 20,
+  "status": true,
+  "category": "Impresoras 3D",
+  "thumbnails": [
+    "creality_ender_3_thumbnail1.jpg",
+    "creality_ender_3_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13a5"
+  },
+  "title": "Smartwatch Samsung Galaxy Watch 4",
+  "description": "Reloj inteligente con seguimiento avanzado de la salud, pantalla AMOLED y resistencia al agua.",
+  "price": 299,
+  "image": "samsung_galaxy_watch_4.jpg",
+  "code": "SAMSUNG4WATCH",
+  "stock": 70,
+  "status": true,
+  "category": "Relojes inteligentes",
+  "thumbnails": [
+    "samsung_galaxy_watch_4_thumbnail1.jpg",
+    "samsung_galaxy_watch_4_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13a6"
+  },
+  "title": "Portátil Lenovo ThinkPad X1 Carbon",
+  "description": "Portátil ultraligero con pantalla HDR Dolby Vision, procesador Intel Core i7 y hasta 15.5 horas de duración de la batería.",
+  "price": 1699,
+  "image": "lenovo_thinkpad_x1_carbon.jpg",
+  "code": "LENOVOCARBON",
+  "stock": 45,
+  "status": true,
+  "category": "Computadoras portátiles",
+  "thumbnails": [
+    "lenovo_thinkpad_x1_carbon_thumbnail1.jpg",
+    "lenovo_thinkpad_x1_carbon_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13a7"
+  },
+  "title": "Barra de sonido Sonos Beam",
+  "description": "Barra de sonido compacta con control de voz, compatibilidad con servicios de streaming y fácil configuración.",
+  "price": 399,
+  "image": "sonos_beam.jpg",
+  "code": "SONOSBEAM",
+  "stock": 60,
+  "status": true,
+  "category": "Altavoces",
+  "thumbnails": [
+    "sonos_beam_thumbnail1.jpg",
+    "sonos_beam_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13a8"
+  },
+  "title": "Reproductor de streaming Roku Ultra",
+  "description": "Reproductor de medios con resolución 4K HDR, control remoto por voz y acceso a miles de canales y aplicaciones.",
+  "price": 99,
+  "image": "roku_ultra.jpg",
+  "code": "ROKUULTRA",
+  "stock": 80,
+  "status": true,
+  "category": "Dispositivos de streaming",
+  "thumbnails": [
+    "roku_ultra_thumbnail1.jpg",
+    "roku_ultra_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13a9"
+  },
+  "title": "Monitor ASUS ROG Swift PG279Q",
+  "description": "Monitor de juegos de 27 pulgadas con resolución WQHD, frecuencia de actualización de 165Hz y tecnología NVIDIA G-SYNC.",
+  "price": 699,
+  "image": "asus_rog_swift_pg279q.jpg",
+  "code": "ASUSPG279Q",
+  "stock": 30,
+  "status": true,
+  "category": "Monitores",
+  "thumbnails": [
+    "asus_rog_swift_pg279q_thumbnail1.jpg",
+    "asus_rog_swift_pg279q_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13aa"
+  },
+  "title": "Cámara de acción GoPro HERO9 Black",
+  "description": "Cámara de acción con video 5K, fotos de 20MP y estabilización HyperSmooth 3.0.",
+  "price": 449,
+  "image": "gopro_hero9_black.jpg",
+  "code": "GOPROHERO9",
+  "stock": 40,
+  "status": true,
+  "category": "Cámaras de acción",
+  "thumbnails": [
+    "gopro_hero9_black_thumbnail1.jpg",
+    "gopro_hero9_black_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13ab"
+  },
+  "title": "Teclado inalámbrico Logitech K780",
+  "description": "Teclado Bluetooth con soporte para múltiples dispositivos, diseño de teclas cóncavas y duración de la batería de hasta 2 años.",
+  "price": 79,
+  "image": "logitech_k780_keyboard.jpg",
+  "code": "LOGIK780",
+  "stock": 50,
+  "status": true,
+  "category": "Periféricos de computadora",
+  "thumbnails": [
+    "logitech_k780_keyboard_thumbnail1.jpg",
+    "logitech_k780_keyboard_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13ac"
+  },
+  "title": "Estación de carga Anker PowerWave+",
+  "description": "Estación de carga inalámbrica con soporte para teléfono y reloj, compatible con carga rápida.",
+  "price": 39,
+  "image": "anker_powerwave_plus.jpg",
+  "code": "ANKERPOWERWAVE",
+  "stock": 90,
+  "status": true,
+  "category": "Accesorios para dispositivos móviles",
+  "thumbnails": [
+    "anker_powerwave_plus_thumbnail1.jpg",
+    "anker_powerwave_plus_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13ad"
+  },
+  "title": "Silla de oficina ergonómica Herman Miller Aeron",
+  "description": "Silla de oficina con ajustes personalizados, soporte lumbar y diseño aerodinámico.",
+  "price": 1399,
+  "image": "herman_miller_aeron_chair.jpg",
+  "code": "HMILLERAERON",
+  "stock": 20,
+  "status": true,
+  "category": "Muebles de oficina",
+  "thumbnails": [
+    "herman_miller_aeron_chair_thumbnail1.jpg",
+    "herman_miller_aeron_chair_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13ae"
+  },
+  "title": "Robot de cocina multifunción Instant Pot Duo Evo Plus",
+  "description": "Robot de cocina con 10 funciones en 1, pantalla LCD y programa de esterilización.",
+  "price": 119,
+  "image": "instant_pot_duo_evo_plus.jpg",
+  "code": "INSTANTPOT",
+  "stock": 35,
+  "status": true,
+  "category": "Electrodomésticos",
+  "thumbnails": [
+    "instant_pot_duo_evo_plus_thumbnail1.jpg",
+    "instant_pot_duo_evo_plus_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13af"
+  },
+  "title": "Cepillo eléctrico Oral-B Pro 3000",
+  "description": "Cepillo de dientes eléctrico recargable con sensor de presión y temporizador de cepillado.",
+  "price": 89,
+  "image": "oralb_pro_3000.jpg",
+  "code": "ORALBPRO3000",
+  "stock": 65,
+  "status": true,
+  "category": "Cuidado personal",
+  "thumbnails": [
+    "oralb_pro_3000_thumbnail1.jpg",
+    "oralb_pro_3000_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13b0"
+  },
+  "title": "Reloj inteligente Apple Watch Series 7",
+  "description": "Reloj inteligente con pantalla retina siempre activa, seguimiento avanzado de la salud y resistencia al agua.",
+  "price": 399,
+  "image": "apple_watch_series_7.jpg",
+  "code": "APPLEWATCH7",
+  "stock": 55,
+  "status": true,
+  "category": "Relojes inteligentes",
+  "thumbnails": [
+    "apple_watch_series_7_thumbnail1.jpg",
+    "apple_watch_series_7_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13b1"
+  },
+  "title": "Auriculares con cancelación de ruido Bose QuietComfort 45",
+  "description": "Auriculares inalámbricos con cancelación activa de ruido, hasta 24 horas de duración de la batería y sonido envolvente.",
+  "price": 329,
+  "image": "bose_quietcomfort_45.jpg",
+  "code": "BOSEQC45",
+  "stock": 25,
+  "status": true,
+  "category": "Auriculares",
+  "thumbnails": [
+    "bose_quietcomfort_45_thumbnail1.jpg",
+    "bose_quietcomfort_45_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13b2"
+  },
+  "title": "Impresora fotográfica portátil Canon IVY Mini",
+  "description": "Impresora de fotos sin tinta con tecnología ZINK, conexión Bluetooth y tamaño de bolsillo.",
+  "price": 99,
+  "image": "canon_ivy_mini_printer.jpg",
+  "code": "CANONIVYMINI",
+  "stock": 70,
+  "status": true,
+  "category": "Impresoras fotográficas",
+  "thumbnails": [
+    "canon_ivy_mini_printer_thumbnail1.jpg",
+    "canon_ivy_mini_printer_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13b3"
+  },
+  "title": "Mouse inalámbrico Logitech MX Master 3",
+  "description": "Mouse ergonómico con sensor de alta precisión, botón de rueda electromagnética y conectividad Bluetooth.",
+  "price": 99,
+  "image": "logitech_mx_master_3.jpg",
+  "code": "LOGIMXMASTER3",
+  "stock": 40,
+  "status": true,
+  "category": "Periféricos de computadora",
+  "thumbnails": [
+    "logitech_mx_master_3_thumbnail1.jpg",
+    "logitech_mx_master_3_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13b4"
+  },
+  "title": "Afeitadora eléctrica Philips Norelco 6800",
+  "description": "Afeitadora eléctrica con cabezales giratorios, sistema de corte de precisión y recortadora emergente.",
+  "price": 119,
+  "image": "philips_norelco_6800.jpg",
+  "code": "PHILNORELCO6800",
+  "stock": 50,
+  "status": true,
+  "category": "Cuidado personal",
+  "thumbnails": [
+    "philips_norelco_6800_thumbnail1.jpg",
+    "philips_norelco_6800_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13b5"
+  },
+  "title": "Monitor curvo Samsung Odyssey G9",
+  "description": "Monitor ultrapanorámico de 49 pulgadas con resolución Dual QHD, frecuencia de actualización de 240Hz y HDR1000.",
+  "price": 1499,
+  "image": "samsung_odyssey_g9.jpg",
+  "code": "SAMSUNGODYSSEYG9",
+  "stock": 20,
+  "status": true,
+  "category": "Monitores",
+  "thumbnails": [
+    "samsung_odyssey_g9_thumbnail1.jpg",
+    "samsung_odyssey_g9_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13b6"
+  },
+  "title": "Cámara DSLR Canon EOS 90D",
+  "description": "Cámara réflex digital con sensor APS-C de 32.5MP, grabación de video 4K y pantalla táctil abatible.",
+  "price": 1199,
+  "image": "canon_eos_90d.jpg",
+  "code": "CANEOS90D",
+  "stock": 30,
+  "status": true,
+  "category": "Cámaras fotográficas",
+  "thumbnails": [
+    "canon_eos_90d_thumbnail1.jpg",
+    "canon_eos_90d_thumbnail2.jpg"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65d6b2e2e681c9cd9e0d13b7"
+  },
+  "title": "Proyector 4K Epson Home Cinema 3800",
+  "description": "Proyector 4K con tecnología 3LCD, HDR10 y amplio desplazamiento de lente.",
+  "price": 1699,
+  "image": "epson_home_cinema_3800.jpg",
+  "code": "EPSONHC3800",
+  "stock": 25,
+  "status": true,
+  "category": "Proyectores",
+  "thumbnails": [
+    "epson_home_cinema_3800_thumbnail1.jpg",
+    "epson_home_cinema_3800_thumbnail2.jpg"
+  ]
+}]
