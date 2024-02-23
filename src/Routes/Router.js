@@ -249,7 +249,8 @@ router.post("/api/carts/:cid/products/:pid", async (req, res) => {
         res.status(500).json({ status: 'error', message: error.message })
     }
 })
-
+//No encontre manera de eliminar productos de mi carrito
+//Según Postman tengo conflictos con el total del carrito
 router.delete("/api/carts/:cid/products/:pid", async (req, res) => {
     try {
         const { cid, pid } = req.params
