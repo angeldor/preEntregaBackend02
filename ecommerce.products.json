@@ -5,7 +5,7 @@
   "title": "iPhone 13 Pro",
   "description": "El último teléfono inteligente de Apple con tecnología 5G y cámara de alta resolución.",
   "price": 999,
-  "image": "iphone13pro.jpg",
+  "image": "https://res.cloudinary.com/du287bapb/image/upload/v1708642677/proyectoBack/iphone13pro.png",
   "code": "IPH13PRO123",
   "stock": 100,
   "status": true,
@@ -82,42 +82,6 @@
     "sony_wh1000xm4_thumbnail1.jpg",
     "sony_wh1000xm4_thumbnail2.jpg"
   ]
-},
-{
-  "_id": {
-    "$oid": "65caf6c3bf85f9ee353ba0f1"
-  },
-  "title": "Example Product",
-  "description": "This is an example product",
-  "price": 29.99,
-  "image": "example.jpg",
-  "code": "EX-001",
-  "stock": 100,
-  "status": true,
-  "category": "Example Category",
-  "thumbnails": [
-    "thumb1.jpg",
-    "thumb2.jpg"
-  ],
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "65caf9144522d7de51c1306e"
-  },
-  "title": "Example Product",
-  "description": "This is an example product",
-  "price": 10.99,
-  "image": "example.jpg",
-  "code": "EX-002",
-  "stock": 100,
-  "status": true,
-  "category": "Example Category",
-  "thumbnails": [
-    "thumb1.jpg",
-    "thumb2.jpg"
-  ],
-  "__v": 0
 },
 {
   "_id": {
