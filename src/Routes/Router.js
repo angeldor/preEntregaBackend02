@@ -266,13 +266,19 @@ router.put("/api/carts/:cid", async (req, res) => {
     try {
         const { cid } = req.params
 
+        if (!mongoose.Types.ObjectId.isValid(cid)) {
+            return res.status(400).json({ status: "error", message: "Invalid cart ID" })
+        }
+
         const { products } = req.body
 
         if (!Array.isArray(products)) {
             return res.status(400).json({ status: "error", message: "Products should be an array" })
         }
 
-        const updatedCart = await cartManager.updateCartWithProducts(cid, products)
+        console.log("Cart ID:", cid)
+
+        const updatedCart = await cartManager.updateCart(cid, products)
 
         res.json({ status: "success", message: "Cart updated successfully", cart: updatedCart })
     } catch (error) {

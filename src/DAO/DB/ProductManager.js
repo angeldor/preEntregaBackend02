@@ -1,5 +1,6 @@
 import { cartModel } from "../models/cart.model.js"
 import { productModel } from "../models/product.model.js"
+import mongoose from 'mongoose'
 
 
 
@@ -132,13 +133,17 @@ class CartManager {
     }
 
     async updateCart(cartId) {
+        if (!mongoose.Types.ObjectId.isValid(cartId)) {
+            throw new Error(`Invalid cart ID: ${cartId}`)
+        }
+    
         try {
             const cart = await cartModel.findById(cartId)
-
+    
             if (!cart) {
                 throw new Error(`Cart with id ${cartId} not found.`)
             }
-
+    
             let newTotal = 0
             for (const item of cart.items) {
                 const product = await productModel.findById(item.productId)
@@ -146,10 +151,10 @@ class CartManager {
                     newTotal += product.price * item.quantity
                 }
             }
-
+    
             cart.total = newTotal
             await cart.save()
-
+    
             console.log(`Cart with id ${cartId} updated successfully.`)
             return cart
         } catch (error) {
