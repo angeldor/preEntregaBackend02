@@ -93,6 +93,10 @@ router.get("/products.html", async (req, res) => {
         let prevPage = currentPage > 1 ? currentPage - 1 : null
         let nextPage = currentPage < totalPages ? currentPage + 1 : null
 
+        if (currentPage < 1 || currentPage > totalPages) {
+            return res.status(404).send("Error 404: Página no encontrada")
+        }
+
         let formattedProducts = products.map(product => {
             return {
                 title: product.title,
@@ -103,7 +107,7 @@ router.get("/products.html", async (req, res) => {
             }
         })
 
-        res.render('product', { productData: formattedProducts, totalPages, currentPage, hasNextPage, hasPrevPage, prevPage, nextPage, prevPrice })
+        res.render('product', { productData: formattedProducts, totalPages, currentPage, hasNextPage, hasPrevPage, prevPage, nextPage })
     } catch (error) {
         res.status(500).json({ message: error.message })
     }

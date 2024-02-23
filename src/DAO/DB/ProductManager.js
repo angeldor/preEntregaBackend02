@@ -108,7 +108,8 @@ class CartManager {
 
         return cart
     }
-
+//No encontre manera de eliminar productos de mi carrito
+//Según Postman tengo conflictos con el total del carrito
     async removeFromCart(cid, pid) {
         const cart = await cartModel.findById(cid);
         if (!cart) {
