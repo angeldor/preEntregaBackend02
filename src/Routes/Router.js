@@ -20,7 +20,7 @@ router.get("/ping", (req, res) => {
 })
 
 router.get("/", (req, res) => {
-    res.render('index', [])
+    res.redirect('/login')
 })
 
 router.post("/products", async (req, res) => {
@@ -290,9 +290,12 @@ router.put("/api/carts/:cid", async (req, res) => {
     }
 })
 
-router.post('/register', async (req, res) => {
+router.post('/singup', async (req, res) => {
     try {
-        const { email, password } = req.body
+        const { firstName, lastName, email, password, confirmPassword } = req.body
+        if (password !== confirmPassword) {
+            return res.status(400).send('Las contraseñas no coinciden')
+        }
         const existingUser = await userModel.findOne({ email })
         if (existingUser) {
             return res.status(400).send('El usuario ya existe')
@@ -300,7 +303,7 @@ router.post('/register', async (req, res) => {
 
 
         const hashedPassword = await bcrypt.hash(password, 10)
-        const newUser = new userModel({ email, password: hashedPassword })
+        const newUser = new userModel({ firstName, lastName, email, password: hashedPassword })
         await newUser.save()
         res.status(201).send('Usuario registrado correctamente')
     } catch (error) {
@@ -308,7 +311,35 @@ router.post('/register', async (req, res) => {
     }
 })
 
+router.get("/singup", (req, res) => {
+    res.render('singup')
+})
 
+router.post('/login', async (req, res) => {
+    try {
+        const { email, password } = req.body
+        const user = await userModel.findOne({ email })
+
+        if (!user) {
+            return res.status(404).send('Usuario no encontrado')
+        }
+
+        const passwordMatch = await bcrypt.compare(password, user.password)
+
+        if (!passwordMatch) {
+            return res.status(401).send('Credenciales inválidas')
+        }
+
+        req.session.userId = user._id
+        res.redirect('/products')
+    } catch (error) {
+        res.status(500).send('Error en el login')
+    }
+})
+
+router.get("/login", (req, res) => {
+    res.render('login')
+})
 
 
 

@@ -7,6 +7,7 @@ import router from './Routes/Router.js'
 import { Server } from 'socket.io'
 import { messageModel } from './DAO/models/message.model.js'
 import cookieParser from 'cookie-parser'
+import expressSession from 'express-session'
 
 const app = express()
 const httpServer = app.listen(8080, () => console.log('Server running on port 8080'))
@@ -29,8 +30,19 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/', router)
 app.use(cookieParser())
 
-app.length("/setCookies", (req, res)=>{
-    res.cookie('AngelCookie', 'Esta es una cookie muy poderosa', {maxAge:10000}).send("Cookie")
+app.use(expressSession({
+    secret: 'floresparcelasmani', // mande la clave por los comentarios de coder
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use((req, res, next) => {
+    const { userId } = req.session
+    const path = req.path
+    if (!userId && path !== '/login') {
+        return res.redirect('/login')
+    }
+    next()
 })
 
 let messages = []
