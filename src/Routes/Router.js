@@ -3,6 +3,8 @@ import { ProductManager, CartManager } from '../DAO/DB/ProductManager.js'
 import mongoose from 'mongoose'
 import { productModel } from '../DAO/models/product.model.js'
 import { cartModel } from '../DAO/models/cart.model.js'
+import { userModel } from '../DAO/models/user.model.js'
+import bcrypt from 'bcrypt'
 
 const router = express.Router()
 
@@ -287,6 +289,27 @@ router.put("/api/carts/:cid", async (req, res) => {
         res.status(500).json({ status: "error", message: "Internal server error" })
     }
 })
+
+router.post('/register', async (req, res) => {
+    try {
+        const { email, password } = req.body
+        const existingUser = await userModel.findOne({ email })
+        if (existingUser) {
+            return res.status(400).send('El usuario ya existe')
+        }
+
+
+        const hashedPassword = await bcrypt.hash(password, 10)
+        const newUser = new userModel({ email, password: hashedPassword })
+        await newUser.save()
+        res.status(201).send('Usuario registrado correctamente')
+    } catch (error) {
+        res.status(500).send('Error en el registro')
+    }
+})
+
+
+
 
 
 export default router

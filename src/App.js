@@ -6,6 +6,7 @@ import mongoose from 'mongoose'
 import router from './Routes/Router.js'
 import { Server } from 'socket.io'
 import { messageModel } from './DAO/models/message.model.js'
+import cookieParser from 'cookie-parser'
 
 const app = express()
 const httpServer = app.listen(8080, () => console.log('Server running on port 8080'))
@@ -26,6 +27,11 @@ app.use(express.static(__dirname + '/public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/', router)
+app.use(cookieParser())
+
+app.length("/setCookies", (req, res)=>{
+    res.cookie('AngelCookie', 'Esta es una cookie muy poderosa', {maxAge:10000}).send("Cookie")
+})
 
 let messages = []
 io.on('connection', socket => {
