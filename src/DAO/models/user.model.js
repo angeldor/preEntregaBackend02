@@ -1,11 +1,30 @@
 import mongoose from 'mongoose'
 
-const userSchema = new mongoose.Schema({
-    email: { type: String, required: true },
-    password: { type: String, required: true },
-    firstName: {type:String},
-    lastName:{type: String},
-    role: { type: String, default: 'usuario' } // Por defecto, todos los usuarios tendrán el rol 'usuario'
+const UsersSchema = new mongoose.Schema({
+    first_name: {
+        type: String,
+        required: true
+    },
+    last_name: {
+        type: String,
+        required: true
+    },
+    age: {
+        type: Number,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+        required: true
+    },
+    role: {
+        type: String,
+        default: 'usuario'
+    }
 })
 
-export const userModel = mongoose.model('users', userSchema)
+export default mongoose.model("Users", UsersSchema)

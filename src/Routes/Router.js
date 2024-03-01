@@ -2,8 +2,9 @@ import express from 'express'
 import { ProductManager, CartManager } from '../DAO/DB/ProductManager.js'
 import mongoose from 'mongoose'
 import { productModel } from '../DAO/models/product.model.js'
-import { cartModel } from '../DAO/models/cart.model.js'
-import { userModel } from '../DAO/models/user.model.js'
+// import { cartModel } from '../DAO/models/cart.model.js'
+// import { userModel } from '../DAO/models/user.model.js'
+import UsersDAO from '../DAO/DB/userManager.js'
 
 const router = express.Router()
 
@@ -17,10 +18,98 @@ mongoose.connection.on("error", err => {
 router.get("/ping", (req, res) => {
     res.send("pong")
 })
-
-router.get("/", (req, res) => {
-    res.redirect('/login')
+// vistas
+router.get('/', (req, res) => {
+    res.redirect('/home')
 })
+
+router.get('/home', (req, res) => {
+
+    if (req.session.user) {
+        res.redirect("/profile")
+    } else {
+        res.render("home")
+    }
+
+})
+
+router.get("/singup", (req, res) => {
+    res.render('singup')
+})
+
+router.get("/login", (req, res) => {
+
+    if (req.session.user) {
+        res.redirect("/profile")
+    } else {
+        res.render("login")
+    }
+
+})
+
+router.get("/profile", async (req, res) => {
+    if (req.session.user) {
+
+        let user = await UsersDAO.getUserByID(req.session.user)
+        res.render("profile", { user })
+
+    } else {
+        res.redirect("/login")
+    }
+})
+
+// sesiones
+
+router.post("/singup", async (req, res) => {
+
+    let first_name = req.body.first_name
+    let last_name = req.body.last_name
+    let email = req.body.email
+    let age = parseInt(req.body.age)
+    let password = req.body.password
+
+    if (!first_name || !last_name || !email || !age || !password) {
+        res.redirect("/singup")
+    }
+
+    let emailUsed = await UsersDAO.getUserByEmail(email)
+
+    if (emailUsed) {
+        res.redirect("/singup")
+    } else {
+        await UsersDAO.insert(first_name, last_name, age, email, password)
+        res.redirect("/login")
+    }
+
+})
+
+router.post("/login", async (req, res) => {
+
+    let email = req.body.email
+    let password = req.body.password
+
+    if (!email || !password) {
+        res.redirect("/login")
+    }
+
+    let user = await UsersDAO.getUserByCreds(email, password)
+
+    if (!user) {
+        res.redirect("/login")
+    } else {
+        req.session.user = user._id
+        res.redirect("/profile")
+    }
+
+})
+
+router.get("/logout", (req, res) => {
+    req.session.destroy((err) => {
+        res.redirect("/home")
+    })
+})
+
+// ProductManager
 
 router.post("/products", async (req, res) => {
     try {
@@ -293,54 +382,5 @@ router.put("/api/carts/:cid", async (req, res) => {
         res.status(500).json({ status: "error", message: "Internal server error" })
     }
 })
-
-router.post('/singup', async (req, res) => {
-    try {
-        const { firstName, lastName, email, password, confirmPassword } = req.body
-        if (password !== confirmPassword) {
-            return res.status(400).send('Las contraseñas no coinciden')
-        }
-        const existingUser = await userModel.findOne({ email })
-        if (existingUser) {
-            return res.status(400).send('El usuario ya existe')
-        }
-
-        const newUser = new userModel({ firstName, lastName, email, password })
-        await newUser.save()
-        res.status(201).send('Usuario registrado correctamente')
-    } catch (error) {
-        res.status(500).send('Error en el registro')
-    }
-})
-
-router.get("/singup", (req, res) => {
-    res.render('singup')
-})
-
-router.post('/login', async (req, res) => {
-    try {
-        const { email, password } = req.body
-        const user = await userModel.findOne({ email })
-
-        if (!user) {
-            return res.status(404).send('Usuario no encontrado')
-        }
-
-        if (password !== user.password) {
-            return res.status(401).send('Credenciales inválidas')
-        }
-
-        req.session.user = { id: usuario.id, nombre: usuario.nombre }
-        res.redirect('/products.html')
-    } catch (error) {
-        res.status(500).send('Error en el login')
-    }
-})
-
-router.get("/login", (req, res) => {
-    res.render('login')
-})
-
-
 
 export default router
