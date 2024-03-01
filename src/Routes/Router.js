@@ -4,7 +4,6 @@ import mongoose from 'mongoose'
 import { productModel } from '../DAO/models/product.model.js'
 import { cartModel } from '../DAO/models/cart.model.js'
 import { userModel } from '../DAO/models/user.model.js'
-import bcrypt from 'bcrypt'
 
 const router = express.Router()
 
@@ -80,6 +79,11 @@ router.delete("/products/:id", async (req, res) => {
 // para visualizar todos los productos con su respectiva paginación.
 router.get("/products.html", async (req, res) => {
     try {
+
+        if (!req.session.user) {
+            return res.redirect('/login')
+        }
+
         const { limit = 10, page = 1, sort, query } = req.query
 
         const options = {
@@ -301,9 +305,7 @@ router.post('/singup', async (req, res) => {
             return res.status(400).send('El usuario ya existe')
         }
 
-
-        const hashedPassword = await bcrypt.hash(password, 10)
-        const newUser = new userModel({ firstName, lastName, email, password: hashedPassword })
+        const newUser = new userModel({ firstName, lastName, email, password })
         await newUser.save()
         res.status(201).send('Usuario registrado correctamente')
     } catch (error) {
@@ -324,14 +326,12 @@ router.post('/login', async (req, res) => {
             return res.status(404).send('Usuario no encontrado')
         }
 
-        const passwordMatch = await bcrypt.compare(password, user.password)
-
-        if (!passwordMatch) {
+        if (password !== user.password) {
             return res.status(401).send('Credenciales inválidas')
         }
 
-        req.session.userId = user._id
-        res.redirect('/products')
+        req.session.user = { id: usuario.id, nombre: usuario.nombre }
+        res.redirect('/products.html')
     } catch (error) {
         res.status(500).send('Error en el login')
     }

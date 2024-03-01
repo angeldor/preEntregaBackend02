@@ -31,7 +31,7 @@ app.use('/', router)
 app.use(cookieParser())
 
 app.use(expressSession({
-    secret: 'floresparcelasmani', // mande la clave por los comentarios de coder
+    secret: 'clavesecreta', 
     resave: false,
     saveUninitialized: false
 }))
