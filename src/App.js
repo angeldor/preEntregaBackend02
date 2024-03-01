@@ -17,13 +17,8 @@ mongoose.connection.on("error", err => {
     console.error("Error al conectarse a Mongo", + err)
 })
 
-app.engine('handlebars', handlebars.engine())
-app.set('views', __dirname + '/views')
-app.set('view engine', 'handlebars')
-app.use(express.static(__dirname + '/public'))
-app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use('/', router)
+
 app.use(cookieParser())
 
 app.use(session({
@@ -31,10 +26,15 @@ app.use(session({
         mongoUrl: "mongodb://localhost:27017/ecommerce",
         ttl: 15,
     }),
-    secret: "secretCode",
-    resave: true,
+    secret: "codigosecreto",
+    resave: false,
     saveUninitialized: true
 }))
+
+app.use(express.static(__dirname + '/public'))
+app.use(express.json())
+
+app.use('/', router)
 
 app.use((req, res, next) => {
     const { user } = req.session
@@ -44,3 +44,14 @@ app.use((req, res, next) => {
     }
     next()
 })
+
+app.engine('handlebars', handlebars.engine())
+app.set('views', __dirname + '/views')
+app.set('view engine', 'handlebars')
+
+
+
+
+
+
+
