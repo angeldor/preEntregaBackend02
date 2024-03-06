@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "65e145e2965576ebd9cb9caf"
+  },
+  "first_name": "admin",
+  "last_name": "admin",
+  "age": 73,
+  "email": "adminCoder@coder.com",
+  "password": "adminCod3r123",
+  "role": "usuario",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e14c511266f4432a618473"
+  },
+  "first_name": "angel",
+  "last_name": "barrios",
+  "age": 24,
+  "email": "angel@gmail.com",
+  "password": "admin",
+  "role": "usuario",
+  "__v": 0
+}]

@@ -2,7 +2,9 @@ import express from 'express'
 import { ProductManager, CartManager } from '../DAO/DB/ProductManager.js'
 import mongoose from 'mongoose'
 import { productModel } from '../DAO/models/product.model.js'
-import { cartModel } from '../DAO/models/cart.model.js'
+// import { cartModel } from '../DAO/models/cart.model.js'
+// import { userModel } from '../DAO/models/user.model.js'
+import UsersDAO from '../DAO/DB/userManager.js'
 
 const router = express.Router()
 
@@ -16,10 +18,98 @@ mongoose.connection.on("error", err => {
 router.get("/ping", (req, res) => {
     res.send("pong")
 })
-
-router.get("/", (req, res) => {
-    res.render('index', [])
+// vistas
+router.get('/', (req, res) => {
+    res.redirect('/home')
 })
+
+router.get('/home', (req, res) => {
+
+    if (req.session.user) {
+        res.redirect("/profile")
+    } else {
+        res.render("home")
+    }
+
+})
+
+router.get("/singup", (req, res) => {
+    res.render('singup')
+})
+
+router.get("/login", (req, res) => {
+
+    if (req.session.user) {
+        res.redirect("/profile")
+    } else {
+        res.render("login")
+    }
+
+})
+
+router.get("/profile", async (req, res) => {
+    if (req.session.user) {
+
+        let user = await UsersDAO.getUserByID(req.session.user)
+        res.render("profile", { user })
+
+    } else {
+        res.redirect("/login")
+    }
+})
+
+// sesiones
+
+router.post("/singup", async (req, res) => {
+
+    let first_name = req.body.first_name
+    let last_name = req.body.last_name
+    let email = req.body.email
+    let age = parseInt(req.body.age)
+    let password = req.body.password
+
+    if (!first_name || !last_name || !email || !age || !password) {
+        res.redirect("/singup")
+    }
+
+    let emailUsed = await UsersDAO.getUserByEmail(email)
+
+    if (emailUsed) {
+        res.redirect("/singup")
+    } else {
+        await UsersDAO.insert(first_name, last_name, age, email, password)
+        res.redirect("/login")
+    }
+
+})
+
+router.post("/login", async (req, res) => {
+
+    let email = req.body.email
+    let password = req.body.password
+
+    if (!email || !password) {
+        res.redirect("/login")
+    }
+
+    let user = await UsersDAO.getUserByCreds(email, password)
+
+    if (!user) {
+        res.redirect("/login")
+    } else {
+        req.session.user = user._id
+        res.redirect("/profile")
+    }
+
+})
+
+router.get("/logout", (req, res) => {
+    req.session.destroy((err) => {
+        res.redirect("/home")
+    })
+})
+
+// ProductManager
 
 router.post("/products", async (req, res) => {
     try {
@@ -78,6 +168,11 @@ router.delete("/products/:id", async (req, res) => {
 // para visualizar todos los productos con su respectiva paginación.
 router.get("/products.html", async (req, res) => {
     try {
+
+        if (!req.session.user) {
+            return res.redirect('/login')
+        }
+
         const { limit = 10, page = 1, sort, query } = req.query
 
         const options = {
@@ -287,6 +382,5 @@ router.put("/api/carts/:cid", async (req, res) => {
         res.status(500).json({ status: "error", message: "Internal server error" })
     }
 })
-
 
 export default router
