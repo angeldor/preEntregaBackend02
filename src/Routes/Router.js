@@ -83,25 +83,11 @@ router.post("/singup", async (req, res) => {
 
 })
 
-router.post("/login", async (req, res) => {
-
-    let email = req.body.email
-    let password = req.body.password
-
-    if (!email || !password) {
-        res.redirect("/login")
-    }
-
-    let user = await UsersDAO.getUserByCreds(email, password)
-
-    if (!user) {
-        res.redirect("/login")
-    } else {
-        req.session.user = user._id
-        res.redirect("/profile")
-    }
-
-})
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/profile',
+    failureRedirect: '/login',
+    failureFlash: true 
+}))
 
 router.get("/logout", (req, res) => {
     req.session.destroy((err) => {
