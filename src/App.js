@@ -7,6 +7,9 @@ import MongoStore from "connect-mongo"
 import router from './Routes/Router.js'
 import cookieParser from 'cookie-parser'
 import session from 'express-session'
+import passport from 'passport'
+import { Strategy as LocalStrategy } from 'passport-local'
+
 
 const app = express()
 const httpServer = app.listen(8080, () => console.log('Server running on port 8080'))
@@ -49,9 +52,34 @@ app.engine('handlebars', handlebars.engine())
 app.set('views', __dirname + '/views')
 app.set('view engine', 'handlebars')
 
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+},
+    async (email, password, done) => {
+        try {
+            const user = await UsersDAO.getUserByCreds(email, password);
+            if (!user) {
+                return done(null, false, { message: 'Usuario o contraseña incorrectos.' })
+            }
+            return done(null, user)
+        } catch (error) {
+            return done(error)
+        }
+    }))
 
+passport.serializeUser((user, done) => {
+    done(null, user._id)
+})
 
+passport.deserializeUser(async (id, done) => {
+    try {
+        const user = await UsersDAO.getUserByID(id)
+        done(null, user)
+    } catch (error) {
+        done(error)
+    }
+})
 
-
-
-
+app.use(passport.initialize())
+app.use(passport.session())
