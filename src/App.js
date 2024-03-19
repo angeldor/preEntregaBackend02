@@ -10,6 +10,7 @@ import session from 'express-session'
 import passport from 'passport'
 import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as GitHubStrategy } from 'passport-github2'
+import UsersDAO from './DAO/DB/userManager.js'
 
 
 const app = express()
@@ -43,7 +44,7 @@ app.use('/', router)
 app.use((req, res, next) => {
     const { user } = req.session
     const path = req.path
-    if (!user && path !== '/login') {
+    if (!user && path !== '/login' && path !== '/singup') {
         return res.redirect('/login')
     }
     next()

@@ -5,6 +5,7 @@ import { productModel } from '../DAO/models/product.model.js'
 // import { cartModel } from '../DAO/models/cart.model.js'
 // import { userModel } from '../DAO/models/user.model.js'
 import UsersDAO from '../DAO/DB/userManager.js'
+import passport from 'passport'
 
 const router = express.Router()
 

@@ -13,16 +13,12 @@ class UsersDAO {
             return null
         }
 
-        const passwordMatch = await bcryp.compare(password, user.password)
+        const passwordMatch = await bcrypt.compare(password, user.password)
         if (!passwordMatch) {
             return null
         }
 
         return user
-    }
-
-    static async insert(first_name, last_name, age, email, password) {
-        return await new Users({ first_name, last_name, age, email, password }).save()
     }
 
     static async getUserByID(id) {
@@ -36,4 +32,4 @@ class UsersDAO {
 
 }
 
-export default UsersDAO;
+export default UsersDAO
