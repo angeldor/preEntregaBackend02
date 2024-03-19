@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser'
 import session from 'express-session'
 import passport from 'passport'
 import { Strategy as LocalStrategy } from 'passport-local'
+import { Strategy as GitHubStrategy } from 'passport-github2'
 
 
 const app = express()
